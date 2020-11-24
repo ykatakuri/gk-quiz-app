@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GK Quiz</title>
+    <link rel="shortcut icon" href="./assets/image/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/chrono-style.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <audio id="chrono-sound" src="" loop autoplay></audio>
+
+    <img src="./assets/image/favicon.jpg" alt="GK Quiz" onclick="goToIndex()">
+
+    <h1>GK Quiz</h1>
+
+    <section id="app">
+        <div id="main-container" class="main-container">
+            <div class="question-container" id="question-container">
+                <p id="reference-question" class="reference-number"></p>
+                <p id="question"></p>
+            </div>
+            <div id="option-container" class="option-container">
+                <ul id="list-of-options">
+                    <li id="option1"></li>
+                    <li id="option2"></li>
+                    <li id="option3"></li>
+                    <li id="option4"></li>
+                </ul>
+            </div>
+            <div id="button-container" class="button-container">
+                <p class="button-next">
+                    <button type="button" onclick="next()" id="next">Next</button>
+                </p>
+                <p class="button-reponse">
+                    <button type="button-response" onclick="displayAnswer()" id="answer-button">Answer</button>
+                </p>
+            </div>
+        </div>
+
+        <aside id="aside-container">
+            <div id="chrono">
+            </div>
+            <p id="timeover-message">Time Over !</p>
+            <div id="answer-container">
+                <span id="answer-text" class="answer-text"></span>
+            </div>
+        </aside>
+    </section>
+
+    <script src="js/app.js"></script>
+    <script src="js/grade-2.js"></script>
+</body>
+
+</html>

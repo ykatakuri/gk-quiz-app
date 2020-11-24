@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GK Quiz</title>
+    <link rel="shortcut icon" href="./assets/image/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <img src="./assets/image/favicon.jpg" alt="GK Quiz" onclick="goToIndex()">
+
+    <h1>GK QUIZ</h1>
+
+    <section id="app">
+        <div id="main-container" class="main-container">
+            <div class="question-container" id="question">
+                <p id="intro-text">
+                    <span class="indication-text">WELCOME !!!</span> <br /><br />
+                    We have different game levels...
+                </p>
+            </div>
+            <div id="button-container" class="button-container">
+                <p class="button-next">
+                    <button type="button" onclick="going()" id="next">Go on</button>
+                </p>
+                <p class="button-reponse">
+                    <button type="button-response" onclick="displayAnswer()" id="answer-button">Answer</button>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
