@@ -12,6 +12,8 @@
 
 <body>
     <audio id="chrono-sound" src="" loop autoplay></audio>
+    <audio id="correct-answer-sound" src=""></audio>
+    <audio id="wrong-answer-sound" src=""></audio>
 
     <img src="./assets/image/favicon.jpg" alt="GK Quiz" onclick="goToIndex()">
 
@@ -23,12 +25,13 @@
                 <p id="reference-question" class="reference-number"></p>
                 <p id="question"></p>
             </div>
+            <div id="image"></div>
             <div id="option-container" class="option-container">
                 <ul id="list-of-options">
-                    <li id="option1"></li>
-                    <li id="option2"></li>
-                    <li id="option3"></li>
-                    <li id="option4"></li>
+                    <li id="option1" onclick="choose(this)"></li>
+                    <li id="option2" onclick="choose(this)"></li>
+                    <li id="option3" onclick="choose(this)"></li>
+                    <li id="option4" onclick="choose(this)"></li>
                 </ul>
             </div>
             <div id="button-container" class="button-container">
@@ -38,13 +41,14 @@
                 <p class="button-reponse">
                     <button type="button-response" onclick="displayAnswer()" id="answer-button">Answer</button>
                 </p>
+                <p id="score-container">Score: <span id="score"></span></p>
             </div>
         </div>
 
         <aside id="aside-container">
             <div id="chrono">
             </div>
-            <p id="timeover-message">Time Over !</p>
+            <p id="timeover-message">Time is Over !</p>
             <div id="answer-container">
                 <span id="answer-text" class="answer-text"></span>
             </div>

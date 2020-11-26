@@ -33,12 +33,12 @@ const changeElementVisibility = (element, visibilityState) => {
 
 const displayQuestion = (i) => {
     i = index;
-    fetch('https://gk-quiz-api.herokuapp.com/grade2')
+    fetch('https://gk-quiz-api.herokuapp.com/grade5')
         .then(response => response.json())
         .then(data => {
             if (i <= data.length - 1) {
                 scoreElement.textContent = `${score} / ${data.length}`; 
-                if (data[i].id != 18 && data[i].id != 19 && data[i].id != 20 && data[i].id != 21 && data[i].id != 22 && data[i].id != 23 && data[i].id != 24 && data[i].id != 25 && data[i].id != 26 && data[i].id != 27 && data[i].id != 28 && data[i].id != 29 && data[i].id != 30 && data[i].id != 31 && data[i].id != 32 && data[i].id != 33 && data[i].id != 34) {
+                if (data[i].id != 12 && data[i].id != 13 && data[i].id != 16 && data[i].id != 17 && data[i].id != 18 && data[i].id != 19 && data[i].id != 20 && data[i].id != 21 && data[i].id != 23 && data[i].id != 24 && data[i].id != 25 && data[i].id != 26 && data[i].id != 27) {
                     imageElement.remove();
                     questionIDElement.textContent = `Question N°${data[i].id}`;
                     questionElement.innerHTML = `${data[i].question}`;

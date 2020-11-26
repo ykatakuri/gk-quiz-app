@@ -1,4 +1,7 @@
-body{background-color:#212121}
+body{
+    /*background-color:#212121*/
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)), url("/assets/image/bg.jpg");
+}
 
 #app{display:flex}
 
@@ -17,15 +20,17 @@ img{
 
 h1{
     text-align:center;
-    color:#fff;
+    color:#eeeeee;
+    font-weight: bold;
     margin:0 0px -5px;
-    font-size:20px
+    font-size:30px;
+    text-transform: uppercase;
 }
 
 .main-container{
     height:auto;
     width:800px;
-    background-color:white;
+    background-color: #fff;
     margin:30px auto;
     border-radius:8px;
     padding:30px
@@ -33,14 +38,15 @@ h1{
 
 .main-container .question-container{
     padding:10px;
-    background-color:#4dd0e1;
+    background-color:#ff6e40;
     border-radius:8px;
     color:#000;
     font-size:16px;
+    font-weight: 600;
     font-family: Georgia, 'Times New Roman', Times, serif;
     float:left;
     width:100%;
-    height:150px
+    height:auto
 }
 
 .indication-text{font-weight:bold}
@@ -61,7 +67,7 @@ h1{
 
 .main-container .option-container ul li{
     display:inline-block;
-    background-color:#000;
+    background-color:#4a148c;
     width:47%;
     padding:15px;
     border-radius:8px;
@@ -77,13 +83,17 @@ h1{
 .main-container .option-container ul li:active{box-shadow:0 3px 0px transparent}
 
 .main-container .option-container ul li.correct{
-    background-color:#00695c;
-    box-shadow:0 3px 0px #00695c
+    background-color:#76ff03;
+    box-shadow:0 3px 0px #76ff03;
+    color: #000;
+    font-weight: bold;
 }
 
 .main-container .option-container ul li.wrong{
-    background-color:#cb0b0b;
-    box-shadow:0 3px 0px #cb0b0b
+    background-color:#ff1744;
+    box-shadow:0 3px 0px #ff1744;
+    color: #000;
+    font-weight: bold;
 }
 
 .main-container .button-container{
@@ -109,24 +119,24 @@ h1{
 .main-container .button-container .button-reponse button{
     padding:15px 50px;
     color:white;
-    background-color:#0d47a1;
+    background-color:#12005e;
     border:none;
     border-radius:8px;
     font-size:15px;
     cursor:pointer;
-    box-shadow:0 3px 0px #0d47a1;
+    box-shadow:0 3px 0px #12005e;
     outline:none
 }
 
 .main-container .button-container .button-next button{
     padding:15px 50px;
     color:white;
-    background-color:#0d47a1;
+    background-color:#12005e;
     border:none;
     border-radius:8px;
     font-size:15px;
     cursor:pointer;
-    box-shadow:0 3px 0px #0d47a1;
+    box-shadow:0 3px 0px #12005e;
     outline:none
 }
 
@@ -164,16 +174,22 @@ h1{
     height:auto;
     margin:10px auto;
     padding:15px;
-    background-color:#00695c;
+    background-color:#00e676;
     border:2px solid black;
     border-radius:5px;
     flex-wrap:wrap;
-    color:white
+    color:#000;
+    font-size: 30px;
 }
 
 .answer-text{
     font-family:Georgia, 'Times New Roman', Times, serif;
     visibility:hidden
+}
+
+#image{
+    margin-left: center;
+    margin-right: center;
 }
 
 .question-image {
@@ -185,4 +201,26 @@ h1{
     margin-left:150px;
     border-radius:10px;
     visibility:visible;
+}
+
+#score-container{
+    width:25%;
+    float:left;
+    visibility: visible
+}
+
+#score-container{
+    font-size:20px;
+    color:black;
+    line-height:50px;
+    text-transform:uppercase
+}
+
+#score-container{
+    background-color:#00bcd4;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    padding:5px 20px;
+    border-radius:8px;
+    color:black
 }
