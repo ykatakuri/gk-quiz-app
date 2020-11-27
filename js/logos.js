@@ -1,6 +1,7 @@
 const questionIDElement = document.getElementById("reference-question");
 const questionElement = document.getElementById("question");
 const imageContainerElement = document.getElementById("image");
+const logo = document.getElementById("logo");
 const option1Element = document.getElementById("option1");
 const option2Element = document.getElementById("option2");
 const option3Element = document.getElementById("option3");
@@ -33,37 +34,24 @@ const changeElementVisibility = (element, visibilityState) => {
 
 const displayQuestion = (i) => {
     i = index;
-    fetch('https://gk-quiz-api.herokuapp.com/grade5')
+    fetch('https://gk-quiz-api.herokuapp.com/logos')
         .then(response => response.json())
         .then(data => {
             if (i <= data.length - 1) {
-                scoreElement.textContent = `${score} / ${data.length}`; 
-                if (data[i].id != 12 && data[i].id != 13 && data[i].id != 16 && data[i].id != 17 && data[i].id != 18 && data[i].id != 19 && data[i].id != 20 && data[i].id != 21 && data[i].id != 23 && data[i].id != 24 && data[i].id != 25 && data[i].id != 26 && data[i].id != 27) {
-                    imageElement.remove();
-                    questionIDElement.textContent = `Question N°${data[i].id}`;
-                    questionElement.innerHTML = `${data[i].question}`;
-                    option1Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>A</span>${data[i].options[0]}`;
-                    option2Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>B</span>${data[i].options[1]}`;
-                    option3Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>C</span>${data[i].options[2]}`;
-                    option4Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>D</span>${data[i].options[3]}`;
-                    answerTextElement.textContent = `The answer is: ${data[i].answer}`;
-                } else {
-                    imageElement.src = data[i].question;
-                    imageElement.alt = data[i].question;
-                    imageElement.classList = "question-image";
-                    questionIDElement.textContent = `Question N°${data[i].id}`;
-                    questionElement.innerHTML = "";
-                    imageContainerElement.appendChild(imageElement);
-                    option1Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>A</span>${data[i].options[0]}`;
-                    option2Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>B</span>${data[i].options[1]}`;
-                    option3Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>C</span>${data[i].options[2]}`;
-                    option4Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>D</span>${data[i].options[3]}`;
-                    answerTextElement.textContent = `The answer is: ${data[i].answer}`;
-                }
+                scoreElement.textContent = `${score} / ${data.length}`;  
+                questionIDElement.textContent = `Question N°${data[i].id}`;
+                logo.src = data[i].question;
+                logo.alt = data[i].question;
+                option1Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>A</span>${data[i].options[0]}`;
+                option2Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>B</span>${data[i].options[1]}`;
+                option3Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>C</span>${data[i].options[2]}`;
+                option4Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>D</span>${data[i].options[3]}`;
+                answerTextElement.textContent = `The answer is: ${data[i].answer}`;
             } else {
                 chronoSoundPlayer.src = "";
                 pause();
-                imageElement.remove();
+                imageContainerElement.style.visibility = "hidden";
+                logo.style.visibility = "hidden";
                 changeElementVisibility(asideElement, "hidden");
                 questionIDElement.textContent = "Game Over !";
                 questionElement.textContent = `You have completed the questions for this Game. Return to the menu.`;
@@ -239,7 +227,7 @@ function choose(element) {
 function checkAnswer(element) {
     let textElement = element.textContent;
 
-    fetch('https://gk-quiz-api.herokuapp.com/grade5')
+    fetch('https://gk-quiz-api.herokuapp.com/logos')
     .then(response => response.json())
     .then(data => {
         if (index <= data.length - 1) {
