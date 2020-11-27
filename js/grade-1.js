@@ -62,10 +62,11 @@ const displayQuestion = (i) => {
                 }
             } else {
                 pause();
+                chronoSoundPlayer.src = "";
                 imageElement.remove();
                 changeElementVisibility(asideElement, "hidden");
                 questionIDElement.textContent = "Game Over !";
-                questionElement.textContent = `You have completed the questions for Grade 1. Return to the menu to go to the next grade`;
+                questionElement.textContent = `You have completed the questions for this Game. Return to the menu.`;
                 changeElementVisibility(optionListElement, "hidden");
                 nextButton.textContent = "Retour";
                 nextButton.setAttribute("onclick", "displayMenu()");

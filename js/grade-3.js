@@ -61,11 +61,12 @@ const displayQuestion = (i) => {
                     answerTextElement.textContent = `The answer is: ${data[i].answer}`;
                 }
             } else {
+                chronoSoundPlayer.src = "";
                 pause();
                 imageElement.remove();
                 changeElementVisibility(asideElement, "hidden");
                 questionIDElement.textContent = "Game Over !";
-                questionElement.textContent = `You have completed the questions for Grade 1. Return to the menu to go to the next grade`;
+                questionElement.textContent = `You have completed the questions for this Game. Return to the menu.`;
                 changeElementVisibility(optionListElement, "hidden");
                 nextButton.textContent = "Retour";
                 nextButton.setAttribute("onclick", "displayMenu()");
@@ -95,7 +96,7 @@ const TIME_LIMIT = 20;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
-let remainingPathColor = COLOR_CODES.info.color;
+let remainingPathColor = COLOR_CODES.alert.color;
 
 var timerId;
 var counter;
@@ -238,7 +239,7 @@ function choose(element) {
 function checkAnswer(element) {
     let textElement = element.textContent;
 
-    fetch('https://gk-quiz-api.herokuapp.com/grade1')
+    fetch('https://gk-quiz-api.herokuapp.com/grade3')
     .then(response => response.json())
     .then(data => {
         if (index <= data.length - 1) {

@@ -13,6 +13,17 @@ img{
     cursor:pointer;
 }
 
+.intro-image{
+    position: relative;
+    bottom: 100px;
+    object-fit:cover;
+    width: 100%;
+    height: max-content;
+    margin-left: center;
+    margin-right: center;
+    border-radius:10px;
+}
+
 *{
     box-sizing:border-box;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -192,7 +203,7 @@ h1{
     margin-right: center;
 }
 
-.question-image {
+.question-image, #logo {
     position:relative;
     top:10px;
     width:50%;
