@@ -48,14 +48,13 @@ const displayQuestion = (i) => {
                 option4Element.innerHTML = `<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>D</span>${data[i].options[3]}`;
                 answerTextElement.textContent = `The answer is: ${data[i].answer}`;
             } else {
-                chronoSoundPlayer.src = "";
                 pause();
+                chronoSoundPlayer.src = "";
                 imageContainerElement.style.visibility = "hidden";
                 logo.style.visibility = "hidden";
+                optionContainerElement.style.visibility = "hidden";
                 changeElementVisibility(asideElement, "hidden");
-                questionIDElement.textContent = "Game Over !";
-                questionElement.textContent = `You have completed the questions for this Game. Return to the menu.`;
-                changeElementVisibility(optionListElement, "hidden");
+                questionIDElement.textContent = "You have completed the questions for this Game. Return to the menu.";
                 nextButton.textContent = "Retour";
                 nextButton.setAttribute("onclick", "displayMenu()");
                 changeElementVisibility(answerButton, "hidden");
@@ -182,6 +181,7 @@ function startTimer() {
         setCircleDasharray();
         setRemainingPathColor(timeLeft);
         chronoSoundPlayer.src = "../assets/audio/chrono.mp3";
+        chronoSoundPlayer.play();
 
         if (timeLeft === 0) {
             pause();
@@ -200,7 +200,7 @@ function pause() {
 
 function reset() {
     pause();
-    timePassed = 0;
+    timePassed = -1;
     startTimer();
 }
 
@@ -209,7 +209,7 @@ const loadPage = () => {
     displayQuestion(index);
     setTimeout(() => {
         start();
-    }, 1000);
+    }, 3200);
     changeElementVisibility(answerContainerElement, "hidden");
     changeElementVisibility(answerTextElement, "hidden");
 };
