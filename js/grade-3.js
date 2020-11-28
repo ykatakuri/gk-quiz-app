@@ -61,8 +61,8 @@ const displayQuestion = (i) => {
                     answerTextElement.textContent = `The answer is: ${data[i].answer}`;
                 }
             } else {
-                chronoSoundPlayer.src = "";
                 pause();
+                chronoSoundPlayer.src = "";
                 imageElement.remove();
                 changeElementVisibility(asideElement, "hidden");
                 questionIDElement.textContent = "Game Over !";
@@ -194,6 +194,7 @@ function startTimer() {
         setCircleDasharray();
         setRemainingPathColor(timeLeft);
         chronoSoundPlayer.src = "../assets/audio/chrono.mp3";
+        chronoSoundPlayer.play();
 
         if (timeLeft === 0) {
             pause();
@@ -212,7 +213,7 @@ function pause() {
 
 function reset() {
     pause();
-    timePassed = 0;
+    timePassed = -1;
     startTimer();
 }
 
@@ -221,7 +222,7 @@ const loadPage = () => {
     displayQuestion(index);
     setTimeout(() => {
         start();
-    }, 1000);
+    }, 3200);
     changeElementVisibility(answerContainerElement, "hidden");
     changeElementVisibility(answerTextElement, "hidden");
 };
